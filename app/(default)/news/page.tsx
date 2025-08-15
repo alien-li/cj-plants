@@ -8,7 +8,7 @@ import {
 } from '@chakra-ui/react';
 import { MdOutlineFeed, MdOutlineVideoLibrary } from 'react-icons/md';
 
-const title = 'CJ Plants - News';
+const title = 'News｜CJ Plants';
 
 export const metadata: Metadata = {
   title,
@@ -53,14 +53,7 @@ export default async function Page() {
   ];
 
   return (
-    <Box
-      display="flex"
-      minHeight="100vh"
-      alignItems="center"
-      justifyContent="center"
-      padding="16px"
-      fontSize="md"
-    >
+    <Box>
       <Timeline.Root maxW="400px" variant="plain">
         {items.map((item, index) => (
           <Timeline.Item key={index}>
