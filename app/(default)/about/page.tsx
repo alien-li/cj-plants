@@ -61,7 +61,7 @@ export default async function Page() {
               <PiMapPinFill />
             </Icon>
           </Link>
-          <Link>
+          <Link href="https://www.instagram.com/cj_plants_v" target="_blank">
             <Icon size="md">
               <PiInstagramLogoFill />
             </Icon>
