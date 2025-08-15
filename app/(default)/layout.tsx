@@ -1,5 +1,6 @@
-import { IconButton } from '@chakra-ui/react';
-import { FiMenu } from 'react-icons/fi';
+import { Flex } from '@chakra-ui/react';
+import { Header } from '@/components/layout/header';
+import { Footer } from '@/components/layout/footer';
 
 type DefaultLayoutProps = {
   children: React.ReactNode
@@ -7,20 +8,22 @@ type DefaultLayoutProps = {
 
 export default function DefaultLayout({ children }: DefaultLayoutProps) {
   return (
-    <div>
-      <main>
+    <Flex
+      as="main"
+      direction="column"
+      minH="100vh"
+    >
+      <Header />
+      <Flex
+        flex="1"
+        align="center"
+        justify="center"
+        fontSize="md"
+        padding="20px 16px"
+      >
         {children}
-        <IconButton
-          variant="outline"
-          rounded="full"
-          position="fixed"
-          top="6"
-          right="6"
-          aria-label="Menu"
-        >
-          <FiMenu />
-        </IconButton>
-      </main>
-    </div>
+      </Flex>
+      <Footer />
+    </Flex>
   );
 }

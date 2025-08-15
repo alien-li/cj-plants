@@ -1,34 +1,38 @@
 import React from 'react';
+import NextLink from 'next/link';
 import {
-  Box,
+  Link,
+  Flex,
   Image,
   HStack,
   Separator,
-  VStack,
-  Link,
 } from '@chakra-ui/react';
+import { Footer } from '@/components/layout/footer';
 
 export default async function Page() {
   const links = [{
-    href: '/',
+    href: '/plants',
     label: 'Plants',
   }, {
     href: '/news',
     label: 'News',
   }, {
-    href: '/',
+    href: '/about',
     label: 'About',
   }];
 
   return (
-    <Box
-      display="flex"
+    <Flex
+      direction="column"
       minHeight="100vh"
-      alignItems="center"
-      justifyContent="center"
       fontSize="md"
     >
-      <VStack gap="0">
+      <Flex
+        flex="1"
+        align="center"
+        justify="center"
+        direction="column"
+      >
         <Image
           // src="https://blocks.astratic.com/img/general-img-square.png"
           src="/images/logo.png"
@@ -37,30 +41,28 @@ export default async function Page() {
           alt="CJ Plants"
           data-state="open"
           _open={{
-            animationName: 'fade-in, scale-out',
-            animationDuration: '2s',
+            animationName: 'fade-in, scale-in',
+            animationDuration: '1.8s',
             animationFillMode: 'forwards',
           }}
         />
         <HStack
-          gap="4"
-          data-state="open"
+          gap="3"
           opacity={0}
+          data-state="open"
           _open={{
             animationName: 'fade-in, slide-from-top',
-            animationDuration: '2s',
+            animationDuration: '1s',
             animationDelay: '0.5s',
             animationFillMode: 'forwards',
           }}
         >
           {links.map((link, index) => (
             <React.Fragment key={index}>
-              <Link
-                variant="plain"
-                color="gray.200"
-                href={link.href}
-              >
-                {link.label}
+              <Link color="gray.200" variant="plain" asChild>
+                <NextLink href={link.href}>
+                  {link.label}
+                </NextLink>
               </Link>
               {index < links.length - 1 && (
                 <Separator
@@ -71,7 +73,8 @@ export default async function Page() {
             </React.Fragment>
           ))}
         </HStack>
-      </VStack>
-    </Box>
+      </Flex>
+      <Footer />
+    </Flex>
   );
 }
